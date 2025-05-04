@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timbre Virtual</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    button {
+      font-size: 20px;
+      padding: 20px 40px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <h1>Departamento 3B</h1>
+  <p>Toca el botón para llamar al residente</p>
+  <button onclick="tocarTimbre()">Tocar timbre</button>
+
+  <script>
+    function tocarTimbre() {
+      fetch('https://tu-api.com/timbre?depto=3B') // ← Aquí irá tu backend real
+        .then(response => {
+          if (response.ok) {
+            alert('¡Timbre enviado!');
+          } else {
+            alert('Error al enviar timbre.');
+          }
+        })
+        .catch(error => {
+          alert('Fallo de conexión.');
+        });
+    }
+  </script>
+</body>
+</html>
